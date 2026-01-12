@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oloyede Islamiyah | Web Developer & Security Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* FUTURISTIC BACKGROUND ANIMATION */
+        body {
+            background-color: #030712;
+            color: #f1f5f9;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Mesh Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(29, 78, 216, 0.08) 0%, transparent 40%);
+            animation: meshMove 15s ease-in-out infinite alternate;
+        }
+
+        /* Subtle Grid Overlay */
+        .bg-futuristic {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes meshMove {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.1) translate(20px, 20px);
+            }
+        }
+
+        .glass-nav {
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .project-card:hover {
+            border-color: #3b82f6;
+            background: rgba(30, 41, 59, 0.5);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Glow effect for cards */
+        .project-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0);
+            transition: box-shadow 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover::after {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+
+    <!-- navbar -->
+    <div class="bg-futuristic"></div>
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tight text-white">
+                OloyedeIslamiyah
+            </div>
+            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-zinc-400">
+                <a href="#home" class="hover:text-white transition">Home</a>
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
+                <a href="#about" class="hover:text-white transition">About</a>
+                <a href="#contact" class="text-blue-500 hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero-section -->
+    <section id="home" class="min-h-screen flex flex-col md:flex-row items-center px-6 max-w-7xl mx-auto pt-20">
+        <div class="md:w-3/5">
+            <h2 class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-4">Web Developer & Security
+                Expert</h2>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tight leading-tight">
+                Building High-Performance <br> <span
+                    class="text-blue-500 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Web
+                    Experiences.</span>
+            </h1>
+            <p class="text-lg text-zinc-400 leading-relaxed mb-10 max-w-2xl">
+                I specialize in developing modern web applications that are fast, responsive, and secure. My goal is to
+                combine great design with robust engineering to help businesses grow.
+            </p>
+            <div class="flex gap-4">
+                <a href="#portfolio"
+                    class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition shadow-lg shadow-blue-900/20">View
+                    Portfolio</a>
+                <a href="#contact"
+                    class="bg-zinc-800 hover:bg-zinc-700 text-white px-8 py-4 rounded-lg font-bold transition">Contact</a>
+            </div>
+        </div>
+
+        <div class="md:w-2/5 mt-12 md:mt-0 relative group">
+            <div class="absolute -inset-4 border border-blue-500/20 rounded-full animate-spin-slow"></div>
+
+            <div
+                class="relative w-64 h-64 md:w-80 md:h-80 mx-auto bg-zinc-900 rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+                <img src="images/images.jpeg" alt="hero-image"
+                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
+
+                <div
+                    class="absolute bottom-4 left-4 right-4 p-3 bg-black/60 backdrop-blur-md border border-white/5 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <span class="text-[8px] text-zinc-500 font-black uppercase">Identity_Verified</span>
+                        <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+    </style>
+
+    <!-- services -->
+    <!-- <section id="services" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-white mb-16">Services</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="project-card p-8 rounded-2xl">
+                <div
+                    class="w-12 h-12 bg-blue-600/10  flex items-center justify-center text-blue-500 mb-6 font-bold">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Web Development</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Creating custom websites and web apps using modern
+                    technologies like HTML, CSS, TAILWIND, and JAVASCRIPT. Focused on speed and usability.</p>
+            </div>
+            <div class="project-card p-8 rounded-2xl">
+                <div
+                    class="w-12 h-12 bg-blue-600/10  flex items-center justify-center text-blue-500 mb-6 font-bold">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Application Security</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Ensuring your web application is protected from common
+                    threats. I build systems with a focus on data privacy and security.</p>
+            </div>
+            <div class="project-card p-8 rounded-2xl">
+                <div
+                    class="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center text-blue-500 mb-6 font-bold">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">System Management</h3>
+                <p class="text-zinc-400 text-sm leading-relaxed">Managing hosting environments and Linux servers to
+                    ensure 99.9% uptime and peak performance for your applications.</p>
+            </div>
+        </div>
+    </section> -->
+
+
+    <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
+        <h2 class="text-2xl font-bold text-white mb-16 uppercase tracking-widest flex items-center gap-4">
+            <span class="w-8 h-[1px] bg-blue-500"></span> Expertise
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="project-card p-10 rounded-2xl relative overflow-hidden group">
+                <div class="mb-8 relative z-10 h-24 flex items-center">
+                    <img src="https://img.icons8.com/isometric/100/3b82f6/code.png" alt="Web Development Icon"
+                        class="w-16 h-16 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold text-white mb-4">Web Development</h3>
+                    <p class="text-white text-sm leading-relaxed">
+                        Building responsive, high-speed applications using modern frameworks. I focus on clean
+                        architecture and seamless user experiences.
+                    </p>
+                </div>
+                <div
+                    class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors">
+                </div>
+            </div>
+            <!--  -->
+            <div class="project-card p-10 rounded-2xl relative overflow-hidden group">
+                <div class="mb-8 relative z-10 h-24 flex items-center">
+                    <img src="https://img.icons8.com/isometric/100/3b82f6/shield.png" alt="Security Icon"
+                        class="w-16 h-16 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold text-white mb-4">Application Security</h3>
+                    <p class="text-white text-sm leading-relaxed">
+                        Integrating security into the development lifecycle. Protecting your data and infrastructure
+                        from modern threats.
+                </div>
+                <div
+                    class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors">
+                </div>
+            </div>
+            <!--  -->
+            <div class="project-card p-10 rounded-2xl relative overflow-hidden group">
+                <div class="mb-8 relative z-10 h-24 flex items-center">
+                    <img src="https://img.icons8.com/isometric/100/3b82f6/server.png" alt="System Management Icon"
+                        class="w-16 h-16 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold text-white mb-4">System Management</h3>
+                    <p class="text-white text-sm leading-relaxed">
+                        Server optimization and Linux administration to ensure your application remains stable under
+                        heavy traffic.
+                </div>
+                <div
+                    class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent work -->
+    <!-- <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-16">
+            <div>
+                <h2 class="text-3xl font-bold text-white">Recent Work</h2>
+                <p class="text-zinc-400 mt-2">A collection of my recent development and design projects.</p>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="project-card p-6 rounded-2xl">
+                <div
+                    class="h-48 bg-zinc-800/50 rounded-xl mb-6 flex items-center justify-center text-zinc-500 font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="hover:scale-110 transition-transform duration-500 italic">Air Jordan Store</span>
+                </div>
+                <h4 class="text-lg font-bold text-white">Sneaker E-Commerce</h4>
+                <p class="text-zinc-500 text-sm mt-2">A full-featured online store for sneaker enthusiasts.</p>
+            </div>
+            <div class="project-card p-6 rounded-2xl">
+                <div
+                    class="h-48 bg-zinc-800/50 rounded-xl mb-6 flex items-center justify-center text-zinc-500 font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="hover:scale-110 transition-transform duration-500 italic">Online Bookstore</span>
+                </div>
+                <h4 class="text-lg font-bold text-white">Book Retail Platform</h4>
+                <p class="text-zinc-500 text-sm mt-2">E-commerce solution for browsing and buying books.</p>
+            </div>
+            <div class="project-card p-6 rounded-2xl">
+                <div
+                    class="h-48 bg-zinc-800/50 rounded-xl mb-6 flex items-center justify-center text-zinc-500 font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="hover:scale-110 transition-transform duration-500 italic">Printivo UI</span>
+                </div>
+                <h4 class="text-lg font-bold text-white">Platform Re-Engineering</h4>
+                <p class="text-zinc-500 text-sm mt-2">Optimized user interface for a print-on-demand service.</p>
+            </div>
+            <div class="project-card p-6 rounded-2xl">
+                <div
+                    class="h-48 bg-zinc-800/50 rounded-xl mb-6 flex items-center justify-center text-zinc-500 font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="hover:scale-110 transition-transform duration-500 italic">Animation Lab</span>
+                </div>
+                <h4 class="text-lg font-bold text-white">Interactive Website</h4>
+                <p class="text-zinc-500 text-sm mt-2">Showcasing high-end CSS and JavaScript animations.</p>
+            </div>
+            <div class="project-card p-6 rounded-2xl">
+                <div
+                    class="h-48 bg-zinc-800/50 rounded-xl mb-6 flex items-center justify-center text-zinc-500 font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="hover:scale-110 transition-transform duration-500 italic">System Security</span>
+                </div>
+                <h4 class="text-lg font-bold text-white">Server Hardening</h4>
+                <p class="text-zinc-500 text-sm mt-2">Configuring secure environments for web hosting.</p>
+            </div>
+            <div class="project-card p-6 rounded-2xl">
+                <div
+                    class="h-48 bg-zinc-800/50 rounded-xl mb-6 flex items-center justify-center text-zinc-500 font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="hover:scale-110 transition-transform duration-500 italic">Product Catalog</span>
+                </div>
+                <h4 class="text-lg font-bold text-white">Inventory Management</h4>
+                <p class="text-zinc-500 text-sm mt-2">A clean tool for managing and displaying store products.</p>
+            </div>
+        </div>
+    </section> -->
+
+
+
+
+
+
+
+    <!-- Recent work -->
+     <section id="portfolio" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <div class="mb-16">
+        <h2 class="text-xs font-black text-blue-500 uppercase tracking-[0.5em] mb-4">Operations Archive</h2>
+        <h3 class="text-4xl font-bold text-white tracking-tighter italic uppercase">Selected Projects</h3>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-x-12 gap-y-20">
+        
+        <div class="group">
+            <div class="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 flex items-center justify-center p-2">
+                <img src="images/Airjordan.png" alt="Air Jordan" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Air Jordan Store</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">E-Commerce Engineering</p>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 flex items-center justify-center p-2">
+                <img src="images/Bokdiverse.png" alt="Bookstore" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Online Bookstore</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Fullstack Development</p>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 flex items-center justify-center p-2">
+                <img src="images/printivo.png" alt="Printivo" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Printivo Clone</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Frontend Optimization</p>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 flex items-center justify-center p-2">
+                <img src="images/Flickr.png" alt="Flickr" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Flickr Hub</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Image System Architecture</p>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 flex items-center justify-center p-2">
+                <img src="images/Libatarian.png" alt="Libertarian" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Libertarian Site</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">CMS Content Build</p>
+            </div>
+        </div>
+
+        <div class="group">
+    <div class="relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center p-6">
+        <img src="images/banking.png" alt="September Digital Banking" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 shadow-2xl">
+        
+        <div class="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+    </div>
+    <div class="mt-6 flex justify-between items-start">
+        <div>
+            <h4 class="text-lg font-bold text-white uppercase tracking-tighter">September Banking</h4>
+            <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Fintech Architecture</p>
+        </div>
+        <a href="#" class="text-zinc-500 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</div>
+
+    </div>
+</section>
+   
+<section id="about" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <div class="grid md:grid-cols-2 gap-20 items-center">
+        
+        <div class="relative group">
+            <div class="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-blue-500/50"></div>
+            <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-blue-500/50"></div>
+            
+            <div class="relative aspect-square rounded-2xl overflow-hidden bg-zinc-900 border border-white/10 shadow-2xl">
+                <img src="images/Profile.jpg" alt="Oloyede Islamiyah" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-70 group-hover:opacity-100">
+                
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/10 to-transparent h-1/2 w-full -translate-y-full group-hover:animate-scan"></div>
+                
+                <div class="absolute bottom-6 left-6 right-6 p-4 bg-[#020617]/80 backdrop-blur-md border border-white/5 rounded-xl">
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-zinc-400">
+                        <span>Identity_Verified</span>
+                        <span class="text-blue-500">Active_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-xs font-black text-blue-500 uppercase tracking-[0.5em] mb-6">Developer_Profile</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tighter italic">The Engineer Behind <br> The Code.</h3>
+            
+            <p class="text-zinc-400 text-lg leading-relaxed mb-6 font-medium">
+                I am Oloyede Islamiyah, a specialist in building high-speed web architectures. My focus is the intersection of clean user interfaces and uncompromising system security.
+            </p>
+            
+            <p class="text-zinc-500 text-sm leading-relaxed mb-10">
+                With a deep background in Linux system management and frontend engineering, I ensure that every application I build is stable, scalable, and protected against modern digital threats.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 border border-white/5 bg-white/5 rounded-lg">
+                    <div class="text-white font-black text-[9px] uppercase tracking-widest mb-1">Architecture</div>
+                    <p class="text-zinc-500 text-[11px]">React / Tailwind / Node</p>
+                </div>
+                <div class="p-4 border border-white/5 bg-white/5 rounded-lg">
+                    <div class="text-white font-black text-[9px] uppercase tracking-widest mb-1">Protection</div>
+                    <p class="text-zinc-500 text-[11px]">AppSec / Hardening</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes scan {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(200%); }
+    }
+    .animate-scan {
+        animation: scan 3s linear infinite;
+    }
+</style>
+  
+
+    <!-- CTA -->
+    <section id="contact" class="py-24 px-6 max-w-7xl mx-auto">
+        <div
+            class="bg-gradient-to-br from-blue-700 to-blue-500 rounded-[2rem] p-12 md:p-20 text-center shadow-2xl shadow-blue-900/20">
+            <h2 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Have a Project in Mind?</h2>
+            <p class="text-blue-100 text-lg mb-10 max-w-xl mx-auto font-medium">I am available for freelance work and
+                full-time opportunities. Let's build something great together.</p>
+            <a href="mailto:your@email.com"
+                class="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-bold uppercase text-sm tracking-widest hover:bg-zinc-100 transition transform hover:scale-105 active:scale-95 shadow-xl">Start
+                a Conversation</a>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-zinc-600 text-[11px] font-bold uppercase tracking-[0.3em]">
+        &copy; 2026 Oloyede Islamiyah. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>
