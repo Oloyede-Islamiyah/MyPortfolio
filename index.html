@@ -1,209 +1,390 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oloyede Islamiyah | Web Developer & Security Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html { scroll-behavior: smooth; }
-        
-        /* THE TITANIUM BACKGROUND ENGINE */
-        body { 
-            background-color: #020617; 
-            color: #f1f5f9; 
-            margin: 0;
-            overflow-x: hidden;
-            /* Creating a deeper, cleaner base */
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.2) 0px, transparent 50%);
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* Animated Ambient Light */
-        .ambient-glow {
+        /* FUTURISTIC BACKGROUND ANIMATION */
+        body {
+            background-color: #030712;
+            color: #f1f5f9;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Mesh Background */
+        body::before {
+            content: "";
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(800px circle at var(--x, 50%) var(--y, 50%), rgba(37, 99, 235, 0.06), transparent 40%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(29, 78, 216, 0.08) 0%, transparent 40%);
+            animation: meshMove 15s ease-in-out infinite alternate;
+        }
+
+        /* Subtle Grid Overlay */
+        .bg-futuristic {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Futuristic Scanline Grid */
-        .grid-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: -1;
-            mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+        @keyframes meshMove {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.1) translate(20px, 20px);
+            }
         }
 
         .glass-nav {
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .project-card {
-            background: rgba(15, 23, 42, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .project-card:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            background: rgba(30, 41, 59, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            border-color: #3b82f6;
+            background: rgba(30, 41, 59, 0.5);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Clean Section Transitions */
-        section {
-            position: relative;
-            z-index: 1;
+        /* Glow effect for cards */
+        .project-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0);
+            transition: box-shadow 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover::after {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
         }
     </style>
 </head>
-<body class="font-sans antialiased">
-    <div class="grid-overlay"></div>
-    <div class="ambient-glow" id="glow"></div>
 
+<body class="font-sans antialiased">
+
+    <!-- navbar -->
+    <div class="bg-futuristic"></div>
     <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tight text-white uppercase">
-                OLOYEDE<span class="text-blue-500">.</span>
+            <div class="text-xl font-bold tracking-tight text-white">
+                OloyedeIslamiyah
             </div>
-            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-zinc-500">
-                <a href="#home" class="hover:text-blue-400 transition">Home</a>
-                <a href="#services" class="hover:text-blue-400 transition">Services</a>
-                <a href="#portfolio" class="hover:text-blue-400 transition">Portfolio</a>
-                <a href="#about" class="hover:text-blue-400 transition">About</a>
-                <a href="#contact" class="text-blue-500 hover:text-white transition">Contact</a>
+            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-zinc-400">
+                <a href="#home" class="hover:text-white transition">Home</a>
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
+                <a href="#about" class="hover:text-white transition">About</a>
+                <a href="#contact" class="text-blue-500 hover:text-blue-400">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto">
-        <div class="max-w-3xl">
-            <h2 class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-4">Architecture & Engineering</h2>
-            <h1 class="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-tight">
-                Modern Web. <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">Secure Builds.</span>
+    <!-- hero-section -->
+    <section id="home" class="min-h-screen flex flex-col md:flex-row items-center px-6 max-w-7xl mx-auto pt-20">
+        <div class="md:w-3/5">
+            <h2 class="text-blue-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-4">Web Developer & Security
+                Expert</h2>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tight leading-tight">
+                Building High-Performance <br> <span
+                    class="text-blue-500 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Web
+                    Experiences.</span>
             </h1>
-            <p class="text-lg text-zinc-400 leading-relaxed mb-10 max-w-2xl font-medium">
-                I specialize in developing high-performance web applications that are fast, responsive, and secure. I bridge the gap between design and technical robustness.
+            <p class="text-lg text-zinc-400 leading-relaxed mb-10 max-w-2xl">
+                I specialize in developing modern web applications that are fast, responsive, and secure. My goal is to
+                combine great design with robust engineering to help businesses grow.
             </p>
             <div class="flex gap-4">
-                <a href="#portfolio" class="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 font-bold uppercase text-[10px] tracking-widest transition shadow-lg shadow-blue-900/20">View Portfolio</a>
-                <a href="#contact" class="border border-zinc-800 text-white px-10 py-4 font-bold uppercase text-[10px] tracking-widest hover:bg-zinc-800 transition">Contact</a>
+                <a href="#portfolio"
+                    class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition shadow-lg shadow-blue-900/20">View
+                    Portfolio</a>
+                <a href="#contact"
+                    class="bg-zinc-800 hover:bg-zinc-700 text-white px-8 py-4 rounded-lg font-bold transition">Contact</a>
             </div>
         </div>
-    </section>
 
-    <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold text-white mb-16 uppercase tracking-widest">Services</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="project-card p-10 rounded-xl">
-                <div class="text-blue-500 font-black text-xs mb-6 tracking-widest">SERVICE_01</div>
-                <h3 class="text-xl font-bold text-white mb-4">Web Development</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed">Custom web applications built with modern stacks. Focused on speed, performance, and cross-device compatibility.</p>
-            </div>
-            <div class="project-card p-10 rounded-xl">
-                <div class="text-blue-500 font-black text-xs mb-6 tracking-widest">SERVICE_02</div>
-                <h3 class="text-xl font-bold text-white mb-4">Application Security</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed">Integrating security into the development lifecycle. Protecting your data and infrastructure from modern threats.</p>
-            </div>
-            <div class="project-card p-10 rounded-xl">
-                <div class="text-blue-500 font-black text-xs mb-6 tracking-widest">SERVICE_03</div>
-                <h3 class="text-xl font-bold text-white mb-4">System Management</h3>
-                <p class="text-zinc-500 text-sm leading-relaxed">Server optimization and Linux administration to ensure your application remains stable under heavy traffic.</p>
-            </div>
-        </div>
-    </section>
+        <div class="md:w-2/5 mt-12 md:mt-0 relative group">
+            <div class="absolute -inset-4 border border-blue-500/20 rounded-full animate-spin-slow"></div>
 
-    <section id="portfolio" class="py-32 px-6 max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold text-white mb-16 uppercase tracking-widest">Recent Work</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="project-card p-6 rounded-xl">
-                <div class="h-56 bg-zinc-900/80 rounded-lg mb-6 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest border border-white/5">Air Jordan Store</div>
-                <h4 class="text-lg font-bold text-white">Sneaker E-Commerce</h4>
-                <p class="text-zinc-500 text-xs mt-2 uppercase font-black tracking-widest text-blue-500">E-Commerce Build</p>
-            </div>
-            <div class="project-card p-6 rounded-xl">
-                <div class="h-56 bg-zinc-900/80 rounded-lg mb-6 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest border border-white/5">Online Bookstore</div>
-                <h4 class="text-lg font-bold text-white">Book Retail Platform</h4>
-                <p class="text-zinc-500 text-xs mt-2 uppercase font-black tracking-widest text-blue-500">Retail Engineering</p>
-            </div>
-            <div class="project-card p-6 rounded-xl">
-                <div class="h-56 bg-zinc-900/80 rounded-lg mb-6 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest border border-white/5">Printivo UI</div>
-                <h4 class="text-lg font-bold text-white">Platform Re-Engineering</h4>
-                <p class="text-zinc-500 text-xs mt-2 uppercase font-black tracking-widest text-blue-500">Frontend Optimization</p>
-            </div>
-            <div class="project-card p-6 rounded-xl">
-                <div class="h-56 bg-zinc-900/80 rounded-lg mb-6 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest border border-white/5">Flickr Clone</div>
-                <h4 class="text-lg font-bold text-white">Photography Community</h4>
-                <p class="text-zinc-500 text-xs mt-2 uppercase font-black tracking-widest text-blue-500">UI / UX Design</p>
-            </div>
-            <div class="project-card p-6 rounded-xl">
-                <div class="h-56 bg-zinc-900/80 rounded-lg mb-6 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest border border-white/5">Libertarian Hub</div>
-                <h4 class="text-lg font-bold text-white">Content Platform</h4>
-                <p class="text-zinc-500 text-xs mt-2 uppercase font-black tracking-widest text-blue-500">Layout Design</p>
-            </div>
-            <div class="project-card p-6 rounded-xl">
-                <div class="h-56 bg-zinc-900/80 rounded-lg mb-6 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest border border-white/5">Security Audit</div>
-                <h4 class="text-lg font-bold text-white">System Hardening</h4>
-                <p class="text-zinc-500 text-xs mt-2 uppercase font-black tracking-widest text-blue-500">AppSec Research</p>
-            </div>
-        </div>
-    </section>
+            <div
+                class="relative w-64 h-64 md:w-80 md:h-80 mx-auto bg-zinc-900 rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+                <img src="images/images.jpeg" alt="hero-image"
+                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
 
-    <section id="about" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="grid md:grid-cols-2 gap-20 items-center">
-            <div class="aspect-square bg-zinc-900/50 rounded-2xl border border-white/5 flex items-center justify-center text-zinc-700 italic font-bold">
-                [Oloyede Photo]
-            </div>
-            <div>
-                <h2 class="text-4xl font-black text-white mb-8 tracking-tighter uppercase italic">The Developer</h2>
-                <p class="text-zinc-400 text-lg leading-relaxed mb-6">
-                    I am Oloyede Islamiyah. I build web experiences with a focus on security and performance. My work is driven by the belief that code should be both elegant and unbreakable.
-                </p>
-                <div class="grid grid-cols-2 gap-6 mt-10">
-                    <div>
-                        <div class="text-white font-bold text-xs uppercase tracking-widest mb-2">Development</div>
-                        <p class="text-zinc-500 text-xs">React, Tailwind, Node.js</p>
-                    </div>
-                    <div>
-                        <div class="text-white font-bold text-xs uppercase tracking-widest mb-2">Security</div>
-                        <p class="text-zinc-500 text-xs">Hardening, Linux, Audits</p>
+                <div
+                    class="absolute bottom-4 left-4 right-4 p-3 bg-black/60 backdrop-blur-md border border-white/5 rounded-lg">
+                    <div class="flex justify-between items-center">
+                        <span class="text-[8px] text-zinc-500 font-black uppercase">Identity_Verified</span>
+                        <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-40 px-6 max-w-7xl mx-auto text-center">
-        <div class="inline-block px-6 py-2 border border-blue-500/30 text-blue-500 text-[10px] font-black uppercase tracking-[0.5em] mb-10">Get in touch</div>
-        <h2 class="text-5xl md:text-8xl font-black text-white mb-12 tracking-tighter">LET'S START A PROJECT.</h2>
-        <a href="mailto:your@email.com" class="bg-white text-black px-12 py-5 font-black uppercase text-xs tracking-[0.3em] hover:bg-blue-600 hover:text-white transition-all shadow-2xl">Send Message</a>
+    <style>
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+    </style>
+
+<!-- services -->
+    <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
+        <h2 class="text-2xl font-bold text-white mb-16 uppercase tracking-widest flex items-center gap-4">
+            <span class="w-8 h-[1px] bg-blue-500"></span> Expertise
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="project-card p-10 rounded-2xl relative overflow-hidden group">
+                <div class="mb-8 relative z-10 h-24 flex items-center">
+                    <img src="https://img.icons8.com/isometric/100/3b82f6/code.png" alt="Web Development Icon"
+                        class="w-16 h-16 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold text-white mb-4">Web Development</h3>
+                    <p class="text-white text-sm leading-relaxed">
+                        Building responsive, high-speed applications using modern frameworks. I focus on clean
+                        architecture and seamless user experiences.
+                    </p>
+                </div>
+                <div
+                    class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors">
+                </div>
+            </div>
+            <!--  -->
+            <div class="project-card p-10 rounded-2xl relative overflow-hidden group">
+                <div class="mb-8 relative z-10 h-24 flex items-center">
+                    <img src="https://img.icons8.com/isometric/100/3b82f6/shield.png" alt="Security Icon"
+                        class="w-16 h-16 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold text-white mb-4">Application Security</h3>
+                    <p class="text-white text-sm leading-relaxed">
+                        Integrating security into the development lifecycle. Protecting your data and infrastructure
+                        from modern threats.
+                </div>
+                <div
+                    class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors">
+                </div>
+            </div>
+            <!--  -->
+            <div class="project-card p-10 rounded-2xl relative overflow-hidden group">
+                <div class="mb-8 relative z-10 h-24 flex items-center">
+                    <img src="https://img.icons8.com/isometric/100/3b82f6/server.png" alt="System Management Icon"
+                        class="w-16 h-16 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-xl font-bold text-white mb-4">System Management</h3>
+                    <p class="text-white text-sm leading-relaxed">
+                        Server optimization and Linux administration to ensure your application remains stable under
+                        heavy traffic.
+                </div>
+                <div
+                    class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors">
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 text-center text-zinc-600 text-[10px] font-black uppercase tracking-[0.4em]">
-        &copy; 2026 OLOYEDE ISLAMIYAH. ALL RIGHTS RESERVED.
+    <!-- Recent work/portfolio -->
+     <section id="portfolio" class="py-32 px-6 max-w-6xl mx-auto border-t border-white/5">
+    <div class="mb-16 text-center md:text-left">
+        <h3 class="text-3xl font-bold text-white tracking-tighter uppercase flex items-center gap-4 justify-center md:justify-start">
+            <span class="w-8 h-[1px] bg-blue-500"></span> Recent Projects
+        </h3>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-x-12 gap-y-16 justify-items-center">
+        
+        <div class="group w-full max-w-md">
+            <div class="relative rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5 flex items-center justify-center p-4 transition-all duration-500 group-hover:border-blue-500/30 group-hover:bg-zinc-800/50 shadow-xl">
+                <img src="images/Airjordan.png" alt="Air Jordan" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6 px-2">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Air Jordan Store</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">E-Commerce Engineering</p>
+            </div>
+        </div>
+
+        <div class="group w-full max-w-md">
+            <div class="relative rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5 flex items-center justify-center p-4 transition-all duration-500 group-hover:border-blue-500/30 group-hover:bg-zinc-800/50 shadow-xl">
+                <img src="images/Bokdiverse.png" alt="Bookstore" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6 px-2">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Online Bookstore</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Fullstack Development</p>
+            </div>
+        </div>
+
+        <div class="group w-full max-w-md">
+            <div class="relative rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5 flex items-center justify-center p-4 transition-all duration-500 group-hover:border-blue-500/30 group-hover:bg-zinc-800/50 shadow-xl">
+                <img src="images/printivo.png" alt="Printivo" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6 px-2">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Printivo Clone</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Frontend Optimization</p>
+            </div>
+        </div>
+
+        <div class="group w-full max-w-md">
+            <div class="relative rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5 flex items-center justify-center p-4 transition-all duration-500 group-hover:border-blue-500/30 group-hover:bg-zinc-800/50 shadow-xl">
+                <img src="images/Flickr.png" alt="Flickr" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6 px-2">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Flickr Hub</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Image System Architecture</p>
+            </div>
+        </div>
+
+        <div class="group w-full max-w-md">
+            <div class="relative rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/5 flex items-center justify-center p-4 transition-all duration-500 group-hover:border-blue-500/30 group-hover:bg-zinc-800/50 shadow-xl">
+                <img src="images/Libatarian.png" alt="Libertarian" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6 px-2">
+                <h4 class="text-lg font-bold text-white uppercase tracking-tighter">Libertarian Site</h4>
+                <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">CMS Content Build</p>
+            </div>
+        </div>
+
+        <div class="group w-full max-w-md">
+            <div class="relative rounded-2xl overflow-hidden bg-zinc-900/50 border border-white/10 flex items-center justify-center p-4 transition-all duration-500 group-hover:border-blue-500/30 group-hover:bg-zinc-800/50 shadow-xl">
+                <img src="images/banking.png" alt="September Digital Banking" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <div class="mt-6 px-2 flex justify-between items-start">
+                <div>
+                    <h4 class="text-lg font-bold text-white uppercase tracking-tighter">September Banking</h4>
+                    <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Fintech Architecture</p>
+                </div>
+                <a href="#" class="text-zinc-500 hover:text-white transition-colors pt-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- About me -->
+<section id="about" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <div class="grid md:grid-cols-2 gap-20 items-center">
+        
+        <div class="relative group">
+            <div class="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-blue-500/50"></div>
+            <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-blue-500/50"></div>
+            
+            <div class="relative aspect-square rounded-2xl overflow-hidden bg-zinc-900 border border-white/10 shadow-2xl">
+                <img src="images/Profile.jpg" alt="Oloyede Islamiyah" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-70 group-hover:opacity-100">
+                
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/10 to-transparent h-1/2 w-full -translate-y-full group-hover:animate-scan"></div>
+                
+                <div class="absolute bottom-6 left-6 right-6 p-4 bg-[#020617]/80 backdrop-blur-md border border-white/5 rounded-xl">
+                    <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-zinc-400">
+                        <span>Identity_Verified</span>
+                        <span class="text-blue-500">Active_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-xs font-black text-blue-500 uppercase tracking-[0.5em] mb-6">Developer_Profile</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tighter italic">The Engineer Behind <br> The Code.</h3>
+            
+            <p class="text-zinc-400 text-lg leading-relaxed mb-6 font-medium">
+                I am Oloyede Islamiyah, a specialist in building high-speed web architectures. My focus is the intersection of clean user interfaces and uncompromising system security.
+            </p>
+            
+            <p class="text-zinc-500 text-sm leading-relaxed mb-10">
+                With a deep background in Linux system management and frontend engineering, I ensure that every application I build is stable, scalable, and protected against modern digital threats.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 border border-white/5 bg-white/5 rounded-lg">
+                    <div class="text-white font-black text-[9px] uppercase tracking-widest mb-1">Architecture</div>
+                    <p class="text-zinc-500 text-[11px]">React / Tailwind / Node</p>
+                </div>
+                <div class="p-4 border border-white/5 bg-white/5 rounded-lg">
+                    <div class="text-white font-black text-[9px] uppercase tracking-widest mb-1">Protection</div>
+                    <p class="text-zinc-500 text-[11px]">AppSec / Hardening</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes scan {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(200%); }
+    }
+    .animate-scan {
+        animation: scan 3s linear infinite;
+    }
+</style>
+  
+
+    <!-- CTA -->
+    <section id="contact" class="py-24 px-6 max-w-7xl mx-auto">
+        <div
+            class="bg-gradient-to-br from-blue-700 to-blue-500 rounded-[2rem] p-12 md:p-20 text-center shadow-2xl shadow-blue-900/20">
+            <h2 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Have a Project in Mind?</h2>
+            <p class="text-blue-100 text-lg mb-10 max-w-xl mx-auto font-medium">I am available for freelance work and
+                full-time opportunities. Let's build something great together.</p>
+            <a href="mailto:your@email.com"
+                class="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-bold uppercase text-sm tracking-widest hover:bg-zinc-100 transition transform hover:scale-105 active:scale-95 shadow-xl">Start
+                a Conversation</a>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-zinc-600 text-[11px] font-bold uppercase tracking-[0.3em]">
+        &copy; 2026 Oloyede Islamiyah. All Rights Reserved.
     </footer>
 
-    <script>
-        // Interactive light effect that follows the mouse
-        const glow = document.getElementById('glow');
-        window.addEventListener('mousemove', (e) => {
-            glow.style.setProperty('--x', e.clientX + 'px');
-            glow.style.setProperty('--y', e.clientY + 'px');
-        });
-    </script>
 </body>
+
 </html>
